@@ -1,0 +1,43 @@
+default_language_version:
+  python: python3.11
+
+default_stages: [pre-commit, pre-push]
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+        exclude: LICENSE
+
+  - repo: local
+    hooks:
+      - id: blocklint
+        name: blocklint
+        entry: make blocklint-check
+        language: system
+
+      - id: isort
+        name: isort
+        entry: make isort-fix
+        types: [python]
+        language: system
+
+      - id: pyink
+        name: pyink
+        entry: make pyink-fix
+        types: [python]
+        language: system
+
+      - id: ruff
+        name: ruff
+        entry: make ruff-fix
+        types: [python]
+        language: system
+
+      - id: pytype
+        name: pytype
+        entry: make pytype-check
+        types: [python]
+        language: system

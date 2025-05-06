@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.isort",
+    "charliermarsh.ruff",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.tensorboard",
+    "ms-azuretools.vscode-docker",
+    "editorconfig.editorconfig",
+    "mechatroner.rainbow-csv",
+    "be5invis.toml",
+  ]
+}

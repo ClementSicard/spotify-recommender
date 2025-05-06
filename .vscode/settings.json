@@ -1,0 +1,23 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll": "explicit",
+        }
+    },
+    "isort.args": [
+        "--settings-path",
+        "pyproject.toml"
+    ],
+    "ruff.importStrategy": "fromEnvironment",
+    "ruff.enable": true,
+    "ruff.configuration": "./pyproject.toml",
+    "ruff.organizeImports": false,
+    "ruff.configurationPreference": "filesystemFirst",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 300,
+    "files.insertFinalNewline": true,
+    "editor.tabSize": 4,
+}

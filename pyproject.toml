@@ -1,0 +1,140 @@
+[project]
+dependencies = ["loguru"]
+description = "uv package for easy Python repo creation"
+dynamic = ["version"]
+keywords = []
+name = "project-name"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+
+[tool.uv]
+dev-dependencies = [
+  "pyink",
+  "isort[colors]",
+  "black",
+  "ruff",
+  "pre-commit",
+  "coverage",
+  "coverage-badge",
+  "ruff",
+  "pytype",
+  "blocklint",
+  "hatch",
+  "tqdm",
+  "ipykernel",
+  "absl-py",
+  "pytest-cov",
+  "pytest-xdist",
+  "pytest-html",
+  "pytest-mock",
+  "mkdocs-material",
+  "mkdocs-gen-files",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/project_name"]
+
+[tool.hatch.version]
+default-version = "0.0.0+unknown"
+path = "src/project_name/__init__.py"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling", "versioningit"]
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = [
+  "E", # pycodestyle
+  "F", # flake8
+  "UP", # pyupgrade
+  "S", # bandit
+  "D", # pydocstyle
+  "W", # Warning
+  "B", # Bugbear
+  "INP", # __init__.py
+  "COM", # Commas
+  "SLF", # private access
+  "TID", # tidy imports
+  "TD", # todos
+  "PD", # pandas
+  "PL", #pylint
+  "NPY", # numpy
+  "RUF", # ruff
+  "ASYNC", # async
+]
+
+ignore = [
+  "E501", # Never enforce `E501` (line length)
+  "COM812", # Allow missing trailing commas
+  "PLR0913", # Allow many arguments in functions
+  "TD003", # Allow TODOs without issue link
+  "S101", # Allow use of asserts when they make more sense than raising errors
+]
+
+unfixable = ["B"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"*_test.py" = ["S101"]
+
+[tool.pyink]
+color = true
+exclude = '''
+/(
+  \.git
+  | \.hg
+  | \.tox
+  | \.venv
+  | \.pytype
+  | _build
+  | buck-out
+  | build
+  | dist
+  | env
+  | venv
+)/
+'''
+line-length = 80
+pyink-indentation = 4
+pyink-use-majority-quotes = true
+target-version = ["py311"]
+
+[tool.isort]
+color_output = true
+include_trailing_comma = true
+indent = 4
+known_typing = ["typing", "typing_extensions", "types"]
+line_length = 1_000
+lines_after_imports = 2
+multi_line_output = 3
+profile = "google"
+py_version = "311"
+sections = [
+  "FUTURE",
+  "STDLIB",
+  "THIRDPARTY",
+  "FIRSTPARTY",
+  "LOCALFOLDER",
+  "TYPING",
+]
+single_line_exclusions = ["collections.abc", "typing", "typing_extensions"]
+
+[tool.coverage.run]
+branch = true
+omit = ["*test.py"]
+source = ["src/project_name"] # Add source folder to coverage
+
+[coverage.paths]
+source = "src"
+
+[coverage.run]
+branch = true
+
+[coverage.report]
+fail_under = "90"
+show_missing = true
