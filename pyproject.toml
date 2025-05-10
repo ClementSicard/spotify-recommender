@@ -1,5 +1,11 @@
 [project]
-dependencies = ["loguru"]
+dependencies = [
+    "click>=8.1.8",
+ "datasets>=3.6.0",
+ "etils[epath]>=1.12.2",
+ "loguru",
+ "polars>=1.29.0",
+]
 description = "Natural language recommender for Spotify"
 dynamic = ["version"]
 keywords = []
