@@ -1,9 +1,9 @@
 [project]
 dependencies = ["loguru"]
-description = "uv package for easy Python repo creation"
+description = "Natural language recommender for Spotify"
 dynamic = ["version"]
 keywords = []
-name = "project-name"
+name = "spotify-recommender"
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 
@@ -32,11 +32,11 @@ dev-dependencies = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/project_name"]
+packages = ["src/spotify_recommender"]
 
 [tool.hatch.version]
 default-version = "0.0.0+unknown"
-path = "src/project_name/__init__.py"
+path = "src/spotify_recommender/__init__.py"
 
 [build-system]
 build-backend = "hatchling.build"
@@ -47,31 +47,31 @@ line-length = 80
 
 [tool.ruff.lint]
 select = [
-  "E", # pycodestyle
-  "F", # flake8
-  "UP", # pyupgrade
-  "S", # bandit
-  "D", # pydocstyle
-  "W", # Warning
-  "B", # Bugbear
-  "INP", # __init__.py
-  "COM", # Commas
-  "SLF", # private access
-  "TID", # tidy imports
-  "TD", # todos
-  "PD", # pandas
-  "PL", #pylint
-  "NPY", # numpy
-  "RUF", # ruff
+  "E",     # pycodestyle
+  "F",     # flake8
+  "UP",    # pyupgrade
+  "S",     # bandit
+  "D",     # pydocstyle
+  "W",     # Warning
+  "B",     # Bugbear
+  "INP",   # __init__.py
+  "COM",   # Commas
+  "SLF",   # private access
+  "TID",   # tidy imports
+  "TD",    # todos
+  "PD",    # pandas
+  "PL",    #pylint
+  "NPY",   # numpy
+  "RUF",   # ruff
   "ASYNC", # async
 ]
 
 ignore = [
-  "E501", # Never enforce `E501` (line length)
-  "COM812", # Allow missing trailing commas
+  "E501",    # Never enforce `E501` (line length)
+  "COM812",  # Allow missing trailing commas
   "PLR0913", # Allow many arguments in functions
-  "TD003", # Allow TODOs without issue link
-  "S101", # Allow use of asserts when they make more sense than raising errors
+  "TD003",   # Allow TODOs without issue link
+  "S101",    # Allow use of asserts when they make more sense than raising errors
 ]
 
 unfixable = ["B"]
@@ -127,7 +127,7 @@ single_line_exclusions = ["collections.abc", "typing", "typing_extensions"]
 [tool.coverage.run]
 branch = true
 omit = ["*test.py"]
-source = ["src/project_name"] # Add source folder to coverage
+source = ["src/spotify_recommender"] # Add source folder to coverage
 
 [coverage.paths]
 source = "src"
