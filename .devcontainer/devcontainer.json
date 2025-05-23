@@ -21,7 +21,7 @@
                 "ms-azuretools.vscode-docker",
                 "editorconfig.editorconfig",
                 "mechatroner.rainbow-csv",
-                "be5invis.toml"
+                "tamasfe.even-better-toml"
             ]
         }
     },
@@ -31,7 +31,7 @@
         "UV_LINK_MODE": "copy",
         "UV_PROJECT_ENVIRONMENT": "/home/vscode/.venv"
     },
-    "postCreateCommand": "uv sync --frozen",
+    "postCreateCommand": "./.devcontainer/post_create_command.sh",
     "postStartCommand": "uv run pre-commit install",
     "remoteUser": "vscode"
 }
